@@ -1,0 +1,49 @@
+{
+  "faqs": [
+    {
+      "keywords": ["school", "magamba", "education"],
+      "answer_en": "Magamba High School is a government secondary school in Lushoto, Tanga region, dedicated to providing quality education.",
+      "answer_sw": "Shule ya Sekondari Magamba ni shule ya serikali iliyoko Lushoto, mkoa wa Tanga, inayotoa elimu bora kwa wanafunzi."
+    },
+    {
+      "keywords": ["results", "exams", "performance", "grades"],
+      "answer_en": "You can check student exam results in the Results section of our website.",
+      "answer_sw": "Unaweza kuangalia matokeo ya mitihani ya wanafunzi kwenye sehemu ya Matokeo ya tovuti yetu."
+    },
+    {
+      "keywords": ["contact", "phone", "email", "address"],
+      "answer_en": "You can reach us via the Contact page, which includes phone numbers and email addresses.",
+      "answer_sw": "Unaweza kuwasiliana nasi kupitia ukurasa wa Mawasiliano, ambapo kuna namba za simu na barua pepe."
+    },
+    {
+      "keywords": ["location", "lushoto", "tanga", "where"],
+      "answer_en": "Magamba High School is located in Lushoto district, Tanga region, Tanzania.",
+      "answer_sw": "Shule ya Sekondari Magamba ipo wilaya ya Lushoto, mkoa wa Tanga, Tanzania."
+    },
+    {
+      "keywords": ["admissions", "apply", "joining", "registration"],
+      "answer_en": "Admissions are handled through government placement. For private inquiries, please visit the Contact page.",
+      "answer_sw": "Uandikishaji wa wanafunzi unafanywa kupitia mfumo wa serikali. Kwa mawasiliano binafsi, tafadhali tembelea ukurasa wa Mawasiliano."
+    },
+    {
+      "keywords": ["fees", "cost", "payment", "tuition"],
+      "answer_en": "Magamba High School is a government school, so there are no tuition fees.",
+      "answer_sw": "Shule ya Sekondari Magamba ni shule ya serikali, hivyo hakuna ada ya masomo."
+    },
+    {
+      "keywords": ["subjects", "curriculum", "courses"],
+      "answer_en": "We offer a wide range of subjects including Mathematics, Sciences, Languages, and Humanities.",
+      "answer_sw": "Tunafundisha masomo mbalimbali ikiwemo Hisabati, Sayansi, Lugha, na Masomo ya Jamii."
+    },
+    {
+      "keywords": ["announcements", "news", "updates"],
+      "answer_en": "You can find the latest school announcements in the Announcements section of our website.",
+      "answer_sw": "Unaweza kupata matangazo ya hivi karibuni ya shule kwenye sehemu ya Matangazo ya tovuti yetu."
+    },
+    {
+      "keywords": ["gallery", "photos", "pictures", "images"],
+      "answer_en": "Visit the Gallery section of our website to see school photos and events.",
+      "answer_sw": "Tembelea sehemu ya Picha kwenye tovuti yetu kuona picha na matukio ya shule."
+    }
+  ]
+}
