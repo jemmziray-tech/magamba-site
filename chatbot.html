@@ -1,0 +1,31 @@
+<!-- Chatbot Widget -->
+<div id="chatbot">
+  <div id="chatbot-header">
+    💬 Chat with us
+    <button id="lang-toggle">EN</button>
+    <button id="speak-toggle">🔊</button>
+    <button id="settings-toggle">⚙️</button>
+  </div>
+
+  <!-- Settings Panel -->
+  <div id="chatbot-settings" style="display:none;">
+    <label><input type="checkbox" id="beep-setting" checked> Enable Beeps</label><br>
+    <label><input type="checkbox" id="voice-setting" checked> Enable Voice (Speak)</label><br>
+    <label><input type="checkbox" id="auto-lang-setting" checked> Auto Language Detect</label>
+  </div>
+
+  <!-- Messages -->
+  <div id="chatbot-messages"></div>
+
+  <!-- Input Area -->
+  <div class="chatbot-input-area">
+    <input id="chatbot-input" type="text" placeholder="Type a message..." />
+    <button id="voice-toggle">🎤</button>
+    <button id="voice-stop">⏹️</button>
+  </div>
+</div>
+
+<!-- Toggle Button -->
+<button id="chatbot-toggle">💬</button>
+
+<script src="chatbot.js"></script>
