@@ -6,25 +6,67 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Contact Us</h1></header>
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <!-- Navigation -->
   <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="academics.html">Academics</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="announcements.html">Announcements</a>
-  <a href="results.html">Results</a>
-  <a href="contact.html">Contact</a>
- </nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="academics.html">Academics</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="results.html">Results</a>
+    <a href="contact.html">Contact</a>
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+  </nav>
+
   <main>
-    <h2>Contact Us</h2>
+    <h2>Get in Touch</h2>
+
+    <!-- Quick Contact Summary -->
+    <div class="contact-container quick-contact">
+      <h3>📌 Quick Contact</h3>
+      <p><span id="emailIcon" class="icon email">📧</span> 
+         <strong>Email:</strong> 
+         <a href="mailto:magambasec2007@gmail.com">magambasec2007@gmail.com</a></p>
+      <p><span id="phoneIcon" class="icon phone">📞</span> 
+         <strong>Phone:</strong> 0717053340 / 0621980975</p>
+      <p><span id="addressIcon" class="icon address">🏫</span> 
+         <strong>Address:</strong> P.O. Box 99, Lushoto, Tanga, Tanzania</p>
+    </div>
+
+    <!-- Google Form -->
     <div class="contact-container">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhRbrNKygO1gLOB9iHAyjvT7IXxQCl9uTiM5ln15w94bNG8w/viewform?embedded=true" 
+      <h3>✉️ Send us a message</h3>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhRbrNKygO1gLOB9iHAyjvT7IXxQCl9uTiM5ln15w94bNG8w/viewform?embedded=true"
               width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">
         Loading…
       </iframe>
     </div>
+
+    <!-- Google Map -->
+    <div class="contact-container">
+      <h3>📍 Location</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.0669846832593!2d38.2979609!3d-4.7583712999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1846eb8ca3522a91%3A0x202a4d8a68dae680!2sMagamba%20Secondary%20School!5e0!3m2!1sen!2stz!4v1772226476550!5m2!1sen!2stz"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
   </main>
-  <footer><p>&copy; 2026 Magamba High School.</p></footer>
+
+  <footer>
+    <p>&copy; 2026 Magamba High School | All Rights Reserved</p>
+  </footer>
+
+  <!-- Floating Dark Mode Toggle -->
+  <button id="floatingDarkModeToggle">🌙</button>
+
+  <!-- Scripts -->
+  <script src="contact.js"></script>
+  <script src="theme.js"></script>
 </body>
 </html>
