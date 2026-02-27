@@ -16,7 +16,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Hero Banner with Animation */
+    /* Hero Banner */
     header {
       background: linear-gradient(135deg, #006400, #228B22);
       color: white;
@@ -24,10 +24,6 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-    }
-    header img, header h1, header p {
-      position: relative;
-      z-index: 1;
     }
     header img {
       width: 220px;
@@ -112,7 +108,25 @@
       transform: scale(1.05);
     }
 
-    /* Contact Section Styling */
+    /* Announcements Section */
+    .announcements {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+    }
+    .announcement {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .announcement h3 {
+      margin-top: 0;
+      color: #228B22;
+    }
+
+    /* Contact Section */
     .contact-container {
       max-width: 700px;
       margin: auto;
@@ -137,19 +151,40 @@
       margin-top: 20px;
     }
 
+    /* Chatbot */
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-family: 'Poppins', sans-serif;
+    }
+    #chat-window { padding: 10px; }
+    #chat-log {
+      height: 220px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+    }
+    #chat-input { width: 70%; padding: 5px; }
+    button {
+      background: #006400;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #228B22; }
+
     /* Animations */
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    @keyframes slideDown {
-      from {opacity: 0; transform: translateY(-30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes slideUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes slideDown { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes slideUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
   </style>
 </head>
 <body>
@@ -167,6 +202,7 @@
     <a href="#about">About Us</a>
     <a href="#academics">Academics</a>
     <a href="#gallery">Gallery</a>
+    <a href="#announcements">Announcements</a>
     <a href="#results">Results</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -175,17 +211,17 @@
   <main>
     <section id="home">
       <h2>Home</h2>
-      <p>Magamba High School is a government secondary school dedicated to providing quality education to all students. Explore our website to learn more about our achievements, events, and community.</p>
+      <p>Magamba High School is a government secondary school dedicated to providing quality education to all students.</p>
     </section>
 
     <section id="about">
       <h2>About Us</h2>
-      <p>Founded in [Year], Magamba High School has a long tradition of academic excellence and extracurricular achievement. Our mission is to nurture well-rounded students who excel in academics, sports, and community service.</p>
+      <p>Founded in [Year], Magamba High School has a long tradition of academic excellence and extracurricular achievement.</p>
     </section>
 
     <section id="academics">
       <h2>Academics</h2>
-      <p>We offer a wide range of subjects at O-Level, including Mathematics, English, Kiswahili, Physics, Chemistry, Biology, Geography, History, and Civics. Our dedicated teachers ensure students are well-prepared for NECTA examinations and future studies.</p>
+      <p>We offer a wide range of subjects at O-Level, including Mathematics, English, Kiswahili, Physics, Chemistry, Biology, Geography, History, and Civics.</p>
     </section>
 
     <section id="gallery">
@@ -197,39 +233,25 @@
       </div>
     </section>
 
-    <!-- Results Section -->
-    <section id="results">
-      <h2>Form Six Results 2025</h2>
-      <p>Click below to view or download the official Magamba High School Form Six 2025 results.</p>
-      
-      <!-- Download Link -->
-      <p>
-        <a href="magamba_results.pdf" target="_blank" style="color:#FFD700; font-weight:bold;">
-          📄 Download Results PDF
-        </a>
-      </p>
-
-      <!-- Embedded PDF Viewer -->
-      <embed src="magamba_results.pdf" type="application/pdf" width="100%" height="600px" />
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <div class="contact-container">
-        <!-- Google Form Embed -->
-        <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" 
-                frameborder="0" marginheight="0" marginwidth="0">
-          Loading…
-        </iframe>
+    <!-- Announcements Section -->
+    <section id="announcements">
+      <h2>Announcements</h2>
+      <div class="announcements">
+        <div class="announcement">
+          <h3>📢 Midterm Exams Schedule</h3>
+          <p>Midterm exams will begin on March 15th, 2026.</p>
+        </div>
+        <div class="announcement">
+          <h3>🏆 Sports Day</h3>
+          <p>Join us for the annual Sports Day on April 10th, 2026.</p>
+        </div>
+        <div class="announcement">
+          <h3>🎓 Graduation Ceremony</h3>
+          <p>The Form Six graduation ceremony will be held on May 25th, 2026.</p>
+        </div>
       </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Magamba High School. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+    <!-- Results Section -->
+    <section id="results">
+      <h2>Form Six Results
