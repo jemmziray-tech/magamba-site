@@ -4,255 +4,341 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magamba High School</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f9;
-      line-height: 1.6;
-      scroll-behavior: smooth;
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    /* Hero Banner */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      transition: 0.3s;
+    }
+
+    /* ================= HEADER ================= */
     header {
       background: linear-gradient(135deg, #006400, #228B22);
       color: white;
-      padding: 120px 20px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header img {
-      width: 220px;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3.2em;
-      color: #FFD700;
-      opacity: 0;
-      transform: translateY(-30px);
-      animation: slideDown 2s ease forwards 1s;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-    }
-    header p {
-      font-size: 1.4em;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideUp 2s ease forwards 2s;
+      padding: 120px 20px;
     }
 
-    /* Navigation */
+    header img {
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3em;
+    }
+
+    /* ================= NAVIGATION ================= */
     nav {
-      background-color: #006400;
+      background: #006400;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+
     nav a {
       color: white;
-      padding: 14px 20px;
       text-decoration: none;
+      padding: 15px 20px;
       font-weight: 600;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav a:hover {
-      background-color: #FFD700;
-      color: #006400;
-      border-radius: 5px;
+      transition: 0.3s;
     }
 
-    /* Sections */
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+    nav a:hover {
+      background: #FFD700;
+      color: #006400;
+      border-radius: 6px;
     }
+
+    nav button {
+      margin-left: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #FFD700;
+      font-size: 1em;
+    }
+
+    /* ================= MAIN ================= */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
     section {
       margin-bottom: 80px;
       text-align: center;
     }
+
     h2 {
       color: #006400;
-      margin-bottom: 20px;
-      font-size: 2em;
-      border-bottom: 3px solid #FFD700;
+      font-size: 2.2em;
+      border-bottom: 4px solid #FFD700;
       display: inline-block;
       padding-bottom: 5px;
+      margin-bottom: 25px;
     }
 
-    /* Gallery */
+    /* ================= GLASS EFFECT ================= */
+    .glass {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* ================= GALLERY ================= */
     .gallery {
       display: flex;
-      flex-wrap: wrap;
       gap: 20px;
+      flex-wrap: wrap;
       justify-content: center;
     }
+
     .gallery img {
-      width: 240px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
+      width: 250px;
+      border-radius: 12px;
+      transition: 0.3s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
 
-    /* Announcements Section */
-    .announcements {
-      max-width: 800px;
-      margin: auto;
-      text-align: left;
+    .gallery img:hover {
+      transform: scale(1.08);
     }
+
+    /* ================= ANNOUNCEMENTS ================= */
     .announcement {
       background: white;
       padding: 20px;
+      border-radius: 10px;
       margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
+
     .announcement h3 {
-      margin-top: 0;
       color: #228B22;
     }
 
-    /* Contact Section */
-    .contact-container {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+    /* ================= CONTACT ================= */
     iframe {
-      border: none;
       width: 100%;
-      height: 700px;
-      border-radius: 10px;
+      height: 650px;
+      border-radius: 12px;
+      border: none;
     }
 
-    /* Footer */
+    /* ================= FOOTER ================= */
     footer {
-      background-color: #006400;
+      background: #006400;
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 20px;
     }
 
-    /* Chatbot */
+    /* ================= CHATBOT ================= */
     #chatbot {
       position: fixed;
       bottom: 20px;
       right: 20px;
       width: 320px;
       background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      font-family: 'Poppins', sans-serif;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      padding: 10px;
     }
-    #chat-window { padding: 10px; }
+
     #chat-log {
-      height: 220px;
+      height: 200px;
       overflow-y: auto;
-      margin-bottom: 10px;
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 10px;
       font-size: 0.9em;
     }
-    #chat-input { width: 70%; padding: 5px; }
-    button {
+
+    #chat-input {
+      width: 70%;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button.send {
       background: #006400;
       color: white;
       border: none;
-      padding: 6px 10px;
-      border-radius: 5px;
+      padding: 7px 10px;
+      border-radius: 6px;
       cursor: pointer;
     }
-    button:hover { background: #228B22; }
 
-    /* Animations */
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    @keyframes slideDown { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
-    @keyframes slideUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+    /* ================= ANIMATIONS ================= */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ================= SCROLL REVEAL ================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= DARK MODE ================= */
+    .dark-mode {
+      background: #121212;
+      color: #f1f1f1;
+    }
+
+    .dark-mode nav,
+    .dark-mode footer {
+      background: #003300;
+    }
+
+    .dark-mode .glass,
+    .dark-mode .announcement {
+      background: #1e1e1e;
+      color: #f1f1f1;
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="magambaimage.webp" alt="Magamba High School">
-    <h1>Magamba High School</h1>
-    <p>Shaping the future through education</p>
-  </header>
+<header>
+  <img src="magambaimage.webp" alt="Magamba High School">
+  <h1>Magamba High School</h1>
+  <p>Shaping the future through education</p>
+</header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#academics">Academics</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#announcements">Announcements</a>
-    <a href="#results">Results</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#academics">Academics</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#announcements">Announcements</a>
+  <a href="#results">Results</a>
+  <a href="#contact">Contact</a>
+  <button onclick="toggleDarkMode()">🌙</button>
+</nav>
 
-  <!-- Main Content -->
-  <main>
-    <section id="home">
-      <h2>Home</h2>
-      <p>Magamba High School is a government secondary school dedicated to providing quality education to all students.</p>
-    </section>
+<main>
 
-    <section id="about">
-      <h2>About Us</h2>
-      <p>Founded in 2007, Magamba High School has a long tradition of academic excellence and extracurricular achievement.</p>
-    </section>
+  <section id="home" class="reveal glass">
+    <h2>Home</h2>
+    <p>Magamba High School is a government secondary school committed to academic excellence and discipline.</p>
+  </section>
 
-    <section id="academics">
-      <h2>Academics</h2>
-      <p>We offer a wide range of subjects at O-Level, including arts, science and agricultural studies. Also, combinations for PCM & PCB only at A-Level</p>
-    </section>
+  <section id="about" class="reveal glass">
+    <h2>About Us</h2>
+    <p>Established in 2007, Magamba High School has grown into a center of academic and moral excellence.</p>
+  </section>
 
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="photo1.jpg" alt="School Event 1">
-        <img src="photo2.jpg" alt="School Event 2">
-        <img src="photo3.jpg" alt="School Event 3">
-      </div>
-    </section>
+  <section id="academics" class="reveal glass">
+    <h2>Academics</h2>
+    <p>We offer Arts, Science, and Agriculture at O-Level, with PCM and PCB combinations at A-Level.</p>
+  </section>
 
-    <!-- Announcements Section -->
-    <section id="announcements">
-      <h2>Announcements</h2>
-      <div class="announcements">
-        <div class="announcement">
-          <h3>📢 Midterm Exams Schedule</h3>
-          <p>Midterm exams will begin on March 15th, 2026.</p>
-        </div>
-        <div class="announcement">
-          <h3>🏆 Sports Day</h3>
-          <p>Join us for the annual Sports Day on April 10th, 2026.</p>
-        </div>
-        <div class="announcement">
-          <h3>🎓 Graduation Ceremony</h3>
-          <p>The Form Six graduation ceremony will be held on May 25th, 2026.</p>
-        </div>
-      </div>
-    </section>
+  <section id="gallery" class="reveal">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+    </div>
+  </section>
 
-    <!-- Results Section -->
-    <section id="results">
-      <h2>Form Six Results 2025</h2>
+  <section id="announcements" class="reveal">
+    <h2>Announcements</h2>
 
+    <div class="announcement">
+      <h3>📢 Midterm Exams</h3>
+      <p>Midterm exams start on March 15th, 2026.</p>
+    </div>
+
+    <div class="announcement">
+      <h3>🏆 Sports Day</h3>
+      <p>Annual sports day will be held on April 10th, 2026.</p>
+    </div>
+
+    <div class="announcement">
+      <h3>🎓 Graduation</h3>
+      <p>Form Six graduation ceremony on May 25th, 2026.</p>
+    </div>
+  </section>
+
+  <section id="results" class="reveal glass">
+    <h2>Form Six Results 2025</h2>
+    <p>Results will be published soon.</p>
+  </section>
+
+  <section id="contact" class="reveal glass">
+    <h2>Contact Us</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScXXXXX/viewform"></iframe>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Magamba High School | All Rights Reserved</p>
+</footer>
+
+<div id="chatbot">
+  <div id="chat-log">👋 Hello! How can we help you?</div>
+  <input id="chat-input" placeholder="Type message...">
+  <button class="send">Send</button>
+</div>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        section.classList.add("active");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
