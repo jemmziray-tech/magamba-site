@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magamba High School</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Banner with Animation */
+    header {
+      background: linear-gradient(135deg, #006400, #228B22);
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header img, header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+    header img {
+      width: 220px; /* Larger logo */
+      margin-bottom: 20px;
+      border-radius: 50%; /* Circular logo style */
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Stylish shadow */
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3.2em;
+      color: #FFD700;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: slideDown 2s ease forwards 1s;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5); /* Glow effect */
+    }
+    header p {
+      font-size: 1.4em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 2s ease forwards 2s;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #006400;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background-color: #FFD700;
+      color: #006400;
+      border-radius: 5px;
+    }
+
+    /* Sections */
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 80px;
+      text-align: center;
+    }
+    h2 {
+      color: #006400;
+      margin-bottom: 20px;
+      font-size: 2em;
+      border-bottom: 3px solid #FFD700;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 240px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact Form */
+    form {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+    }
+    form button {
+      background-color: #FFD700;
+      color: #006400;
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #DAA520;
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #006400;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes slideDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="magambaimage.webp" alt="Magamba High School">
+    <h1>Magamba High School</h1>
+    <p>Shaping the future through education</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#academics">Academics</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section id="home">
+      <h2>Home</h2>
+      <p>Magamba High School is a government secondary school dedicated to providing quality education to all students. Explore our website to learn more about our achievements, events, and community.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Founded in [Year], Magamba High School has a long tradition of academic excellence and extracurricular achievement. Our mission is to nurture well-rounded students who excel in academics, sports, and community service.</p>
+    </section>
+
+    <section id="academics">
+      <h2>Academics</h2>
+      <p>We offer a wide range of subjects at O-Level, including Mathematics, English, Kiswahili, Physics, Chemistry, Biology, Geography, History, and Civics. Our dedicated teachers ensure students are well-prepared for NECTA examinations and future studies.</p>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="photo1.jpg" alt="School Event 1">
+        <img src="photo2.jpg" alt="School Event 2">
+        <img src="photo3.jpg" alt="School Event 3">
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results">
+      <h2>Form Six Results 2025</h2>
+      <p>Click below to view or download the official Magamba High School Form Six 2025 results.</p>
+      
+      <!-- Download Link -->
+      <p>
+        <a href="magamba_results.pdf" target="_blank" style="color:#FFD700; font-weight:bold;">
+          📄 Download Results PDF
+        </a>
+      </p>
+
+      <!-- Embedded PDF Viewer -->
+      <embed src="magamba_results.pdf" type="application/pdf" width="100%" height="600px" />
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Magamba High School. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
