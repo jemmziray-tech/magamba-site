@@ -93,6 +93,14 @@
     <p>&copy; 2026 Magamba High School.</p>
     <p class="credit"><span class="dev-icon">⚡</span> developed by John Mziray</p>
   </footer>
+  <!-- Global Image Modal -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="caption"></div>
+  <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+  <span class="next" onclick="changeImage(1)">&#10095;</span>
+</div>
   <script>
   let currentIndex = 0;
   let images = [];
@@ -127,6 +135,7 @@
 </script>
 </body>
 </html>
+
 
 
 
