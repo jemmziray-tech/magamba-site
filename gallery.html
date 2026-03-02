@@ -28,9 +28,42 @@
     </div>
   </main>
   <footer><p>&copy; 2026 Magamba High School.</p></footer>
+  <script>
+  let currentIndex = 0;
+  let images = [];
+
+  document.addEventListener("DOMContentLoaded", function() {
+    images = Array.from(document.querySelectorAll("img"));
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const captionText = document.getElementById("caption");
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", function() {
+        currentIndex = index;
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      });
+    });
+
+    window.closeModal = function() {
+      modal.style.display = "none";
+    };
+
+    window.changeImage = function(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      modalImg.src = images[currentIndex].src;
+      captionText.innerHTML = images[currentIndex].alt;
+    };
+  });
+</script>
 </body>
 
 </html>
+
 
 
 
