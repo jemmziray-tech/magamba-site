@@ -253,8 +253,4 @@ h2 {
 .icon.phone { animation: bounceIcon 1.5s infinite; }
 @keyframes bounceIcon {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* ===== Global Image Modal ===== */
-.modal
+  50% { transform:
