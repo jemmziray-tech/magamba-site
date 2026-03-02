@@ -93,49 +93,69 @@
     <p>&copy; 2026 Magamba High School.</p>
     <p class="credit"><span class="dev-icon">⚡</span> developed by John Mziray</p>
   </footer>
+
   <!-- Global Image Modal -->
-<div id="imageModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImage">
-  <div id="caption"></div>
-  <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-  <span class="next" onclick="changeImage(1)">&#10095;</span>
-</div>
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+    <span class="next" onclick="changeImage(1)">&#10095;</span>
+  </div>
+
+  <!-- JavaScript -->
   <script>
-  let currentIndex = 0;
-  let images = [];
+    let currentIndex = 0;
+    let images = [];
 
-  document.addEventListener("DOMContentLoaded", function() {
-    images = Array.from(document.querySelectorAll("img"));
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const captionText = document.getElementById("caption");
+    document.addEventListener("DOMContentLoaded", function() {
+      images = Array.from(document.querySelectorAll("img"));
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("caption");
 
-    images.forEach((img, index) => {
-      img.addEventListener("click", function() {
-        currentIndex = index;
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
+      // Open modal on image click
+      images.forEach((img, index) => {
+        img.addEventListener("click", function() {
+          currentIndex = index;
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          captionText.innerHTML = this.alt;
+        });
+      });
+
+      // Close modal
+      window.closeModal = function() {
+        modal.style.display = "none";
+      };
+
+      // Change image with arrows
+      window.changeImage = function(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        modalImg.src = images[currentIndex].src;
+        captionText.innerHTML = images[currentIndex].alt;
+      };
+
+      // Close modal when clicking outside image
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Swipe gestures for mobile
+      let startX = 0;
+      modalImg.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+      });
+      modalImg.addEventListener("touchend", e => {
+        let endX = e.changedTouches[0].clientX;
+        if (endX - startX > 50) changeImage(-1); // swipe right
+        if (startX - endX > 50) changeImage(1);  // swipe left
       });
     });
-
-    window.closeModal = function() {
-      modal.style.display = "none";
-    };
-
-    window.changeImage = function(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) currentIndex = images.length - 1;
-      if (currentIndex >= images.length) currentIndex = 0;
-      modalImg.src = images[currentIndex].src;
-      captionText.innerHTML = images[currentIndex].alt;
-    };
-  });
-</script>
+  </script>
 </body>
 </html>
-
-
-
-
