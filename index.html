@@ -29,15 +29,89 @@
 
   <!-- Main Content -->
   <main>
+    <!-- Slideshow -->
+    <section class="hero-slideshow">
+      <div class="slides fade">
+        <img src="gallery/school-campus.jpg" alt="Magamba High School Campus">
+        <div class="caption">Our beautiful campus in the Usambara Mountains</div>
+      </div>
+
+      <div class="slides fade">
+        <img src="gallery/students-learning.jpg" alt="Students learning at Magamba">
+        <div class="caption">Dedicated students in class</div>
+      </div>
+
+      <div class="slides fade">
+        <img src="gallery/sports-day.jpg" alt="Sports day at Magamba">
+        <div class="caption">Sports and extracurricular activities</div>
+      </div>
+
+      <div class="slides fade">
+        <img src="gallery/science-lab.jpg" alt="Science lab at Magamba">
+        <div class="caption">Modern science laboratory</div>
+      </div>
+
+      <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+    </section>
+
+    <!-- Welcome -->
     <section>
       <h2>Welcome</h2>
       <p>Magamba High School is a government secondary school dedicated to providing quality education to all students.</p>
+    </section>
+
+    <!-- Quick Highlights -->
+    <section class="highlights">
+      <h2>Quick Highlights</h2>
+      <div class="highlight-cards">
+        <div class="card">
+          <h3>NECTA Results</h3>
+          <p>Consistently strong performance in ACSEE exams.</p>
+        </div>
+        <div class="card">
+          <h3>ICT Development</h3>
+          <p>Modern computer lab inaugurated in 2026 with 26 computers.</p>
+        </div>
+        <div class="card">
+          <h3>Historical Legacy</h3>
+          <p>Home of the famous Mpemba Effect discovery (1963).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials with Photos -->
+    <section class="testimonials">
+      <h2>What Our Alumni Say</h2>
+      <div class="testimonial">
+        <img src="gallery/alumni1.jpg" alt="Alumni student scholarship" class="testimonial-img">
+        <p>"Magamba prepared me for university life with confidence. I received a scholarship to study abroad."</p>
+        <span>- Alumni, Class of 2024</span>
+      </div>
+      <div class="testimonial">
+        <img src="gallery/alumni2.jpg" alt="Alumni student at university" class="testimonial-img">
+        <p>"The supportive teachers and environment helped me secure admission to a top university."</p>
+        <span>- Alumni, Class of 2025</span>
+      </div>
+    </section>
+
+    <!-- Quick Contact -->
+    <section class="quick-contact">
+      <h2>Quick Contact</h2>
+      <p><span class="icon phone">📞</span> +255 712 345 678</p>
+      <p><span class="icon email">✉️</span> info@magambahigh.ac.tz</p>
+      <p><span class="icon address">📍</span> Lushoto, Tanga Region, Tanzania</p>
+      <a href="contact.html" class="contact-btn">Go to Contact Page</a>
     </section>
   </main>
 
   <!-- Footer with Developer Credit -->
   <footer>
-    <p>&copy; 2026 Magamba High School | 
+    <p>&copy; 2026 Magamba High School |
        <span class="credit"><span class="dev-icon">👨‍💻</span> Developed by John Mziray</span>
     </p>
   </footer>
@@ -74,5 +148,32 @@
 
   <!-- Link to chatbot logic -->
   <script src="chatbot.js"></script>
+
+  <!-- Slideshow JavaScript -->
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slides");
+      let dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active-dot";
+      setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
+
+    function currentSlide(n) {
+      slideIndex = n-1;
+      showSlides();
+    }
+  </script>
 </body>
 </html>
