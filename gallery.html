@@ -4,6 +4,68 @@
   <meta charset="UTF-8">
   <title>Gallery - Magamba High School</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Filter buttons styling */
+    .filter-buttons {
+      text-align: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .filter-buttons button {
+      background: #FFD700;
+      color: #006400;
+      border: none;
+      padding: 10px 18px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .filter-buttons button:hover {
+      transform: scale(1.1);
+      background: #006400;
+      color: #FFD700;
+    }
+    .gallery-group { display: none; }
+    .gallery-group.active { display: block; }
+
+    /* Responsive gallery layout */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 220px;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Mobile adjustments */
+    @media only screen and (max-width: 600px) {
+      .filter-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .filter-buttons button {
+        width: 90%;
+        margin: 8px 0;
+      }
+      .gallery img {
+        width: 100%;
+        max-width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header><h1>Gallery</h1></header>
@@ -20,41 +82,48 @@
   <main>
     <h2>Gallery</h2>
 
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button onclick="showGroup('2024')">Show 2024</button>
+      <button onclick="showGroup('2025')">Show 2025</button>
+      <button onclick="showGroup('2026')">Show 2026</button>
+      <button onclick="showGroup('teachers')">Show Teachers</button>
+      <button onclick="showGroup('all')">Show All</button>
+    </div>
+
     <!-- FM6 Leavers 2024 -->
-    <section class="gallery-group">
+    <section class="gallery-group" data-group="2024">
       <h3>FM6 Leavers 2024</h3>
       <div class="gallery">
-        <img src="gallery/2024-leavers1.jpg" alt="Class of 2024 celebrating graduation">
-        <img src="photo1.webp" alt="Group photo of 2024 leavers">
+        <img src="photo1.webp" alt="Class of 2024 celebrating together with teachers">
+
       </div>
     </section>
 
     <!-- FM6 Leavers 2025 -->
-    <section class="gallery-group">
+    <section class="gallery-group" data-group="2025">
       <h3>FM6 Leavers 2025</h3>
       <div class="gallery">
         <img src="photo5.jpeg" alt="Class of 2025 graduation ceremony">
         <img src="photo6.jpeg" alt="Class of 2025 graduation ceremony">
-        <img src="gallery/2025-leavers2.jpg" alt="Students of 2025 posing together">
       </div>
     </section>
 
     <!-- FM6 Leavers 2026 -->
-    <section class="gallery-group">
+    <section class="gallery-group" data-group="2026">
       <h3>FM6 Leavers 2026</h3>
       <div class="gallery">
         <img src="C1.jpeg" alt="Class of 2026 graduation day">
         <img src="C2.jpeg" alt="Class of 2026 graduation day">
         <img src="C3.jpeg" alt="Class of 2026 graduation day">
-        <img src="gallery/2026-leavers2.jpeg" alt="2026 leavers enjoying their last day">
       </div>
     </section>
 
     <!-- Teachers -->
-    <section class="gallery-group">
+    <section class="gallery-group" data-group="teachers">
       <h3>Teachers</h3>
       <div class="gallery">
-        <img src="photo2.webp" alt="Teachers of Magamba High School">
+        <img src="gallery/teachers1.jpg" alt="Teachers of Magamba High School">
         <img src="gallery/teachers2.jpg" alt="Staff members during training">
       </div>
     </section>
@@ -123,6 +192,21 @@
         if (endX - startX > 50) changeImage(-1); // swipe right
         if (startX - endX > 50) changeImage(1);  // swipe left
       });
+
+      // Show groups filter
+      window.showGroup = function(group) {
+        const groups = document.querySelectorAll(".gallery-group");
+        groups.forEach(section => {
+          if (group === "all" || section.dataset.group === group) {
+            section.classList.add("active");
+          } else {
+            section.classList.remove("active");
+          }
+        });
+      };
+
+      // Default: show all
+      showGroup("all");
     });
   </script>
 </body>
