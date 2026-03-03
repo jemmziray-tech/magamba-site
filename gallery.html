@@ -8,72 +8,122 @@
 <body>
   <header><h1>Gallery</h1></header>
   <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="academics.html">Academics</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="announcements.html">Announcements</a>
-  <a href="results.html">Results</a>
-  <a href="contact.html">Contact</a>
-</nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="academics.html">Academics</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="results.html">Results</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <main>
     <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="photo1.webp" alt="School Event 1">
-      <img src="photo2.webp" alt="School Event 2">
-      <img src="photo3.webp" alt="School Event 3">
-      <img src="photo4.webp" alt="School Event 4">
-      <img src="photo5.jpeg" alt="School Event 5">
-      <img src="photo6.jpeg" alt="School Event 6">
-    </div>
+
+    <!-- FM6 Leavers 2024 -->
+    <section class="gallery-group">
+      <h3>FM6 Leavers 2024</h3>
+      <div class="gallery">
+        <img src="gallery/2024-leavers1.jpg" alt="Class of 2024 celebrating graduation">
+        <img src="photo1.webp" alt="Group photo of 2024 leavers">
+      </div>
+    </section>
+
+    <!-- FM6 Leavers 2025 -->
+    <section class="gallery-group">
+      <h3>FM6 Leavers 2025</h3>
+      <div class="gallery">
+        <img src="photo5.jpeg" alt="Class of 2025 graduation ceremony">
+        <img src="photo6.jpeg" alt="Class of 2025 graduation ceremony">
+        <img src="gallery/2025-leavers2.jpg" alt="Students of 2025 posing together">
+      </div>
+    </section>
+
+    <!-- FM6 Leavers 2026 -->
+    <section class="gallery-group">
+      <h3>FM6 Leavers 2026</h3>
+      <div class="gallery">
+        <img src="C1.jpeg" alt="Class of 2026 graduation day">
+        <img src="C2.jpeg" alt="Class of 2026 graduation day">
+        <img src="C3.jpeg" alt="Class of 2026 graduation day">
+        <img src="gallery/2026-leavers2.jpeg" alt="2026 leavers enjoying their last day">
+      </div>
+    </section>
+
+    <!-- Teachers -->
+    <section class="gallery-group">
+      <h3>Teachers</h3>
+      <div class="gallery">
+        <img src="photo2.webp" alt="Teachers of Magamba High School">
+        <img src="gallery/teachers2.jpg" alt="Staff members during training">
+      </div>
+    </section>
   </main>
+
   <footer><p>&copy; 2026 Magamba High School.</p></footer>
+
   <!-- Global Image Modal -->
-<div id="imageModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImage">
-  <div id="caption"></div>
-  <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-  <span class="next" onclick="changeImage(1)">&#10095;</span>
-</div>
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+    <span class="next" onclick="changeImage(1)">&#10095;</span>
+  </div>
+
+  <!-- JavaScript -->
   <script>
-  let currentIndex = 0;
-  let images = [];
+    let currentIndex = 0;
+    let images = [];
 
-  document.addEventListener("DOMContentLoaded", function() {
-    images = Array.from(document.querySelectorAll("img"));
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const captionText = document.getElementById("caption");
+    document.addEventListener("DOMContentLoaded", function() {
+      images = Array.from(document.querySelectorAll(".gallery img"));
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("caption");
 
-    images.forEach((img, index) => {
-      img.addEventListener("click", function() {
-        currentIndex = index;
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
+      // Open modal on image click
+      images.forEach((img, index) => {
+        img.addEventListener("click", function() {
+          currentIndex = index;
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          captionText.innerHTML = this.alt; // short description
+        });
+      });
+
+      // Close modal
+      window.closeModal = function() {
+        modal.style.display = "none";
+      };
+
+      // Change image with arrows
+      window.changeImage = function(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        modalImg.src = images[currentIndex].src;
+        captionText.innerHTML = images[currentIndex].alt;
+      };
+
+      // Close modal when clicking outside image
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Swipe gestures for mobile
+      let startX = 0;
+      modalImg.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+      });
+      modalImg.addEventListener("touchend", e => {
+        let endX = e.changedTouches[0].clientX;
+        if (endX - startX > 50) changeImage(-1); // swipe right
+        if (startX - endX > 50) changeImage(1);  // swipe left
       });
     });
-
-    window.closeModal = function() {
-      modal.style.display = "none";
-    };
-
-    window.changeImage = function(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) currentIndex = images.length - 1;
-      if (currentIndex >= images.length) currentIndex = 0;
-      modalImg.src = images[currentIndex].src;
-      captionText.innerHTML = images[currentIndex].alt;
-    };
-  });
-</script>
+  </script>
 </body>
-
 </html>
-
-
-
-
-
-
