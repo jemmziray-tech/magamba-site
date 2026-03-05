@@ -223,3 +223,52 @@ footer .dev-icon { color: #FFD700; }
   .testimonial-img { width: 90px; height: 90px; }
   .quick-contact { width: 90%; }
 }
+
+/* Heading container */
+.animated-heading {
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 50% / 100%; /* semi-circular shape */
+  background: linear-gradient(90deg, #006400, #228B22);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  animation: fadeColors 6s infinite alternate, fadeInDown 1.5s ease-out;
+}
+
+/* Fade animation ya rangi */
+@keyframes fadeColors {
+  0%   { color: #FFD700; background: linear-gradient(90deg, #006400, #228B22); }
+  50%  { color: #ffffff; background: linear-gradient(90deg, #228B22, #006400); }
+  100% { color: #FFD700; background: linear-gradient(90deg, #006400, #228B22); }
+}
+
+/* Entrance effect: fade-in + slide-down */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Letter animations */
+.animated-heading span {
+  display: inline-block;
+  animation: bounceLetters 2s infinite;
+}
+
+/* kila herufi icheze kidogo kwa delay tofauti */
+.animated-heading span:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.animated-heading span:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounceLetters {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
